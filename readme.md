@@ -1,3 +1,4 @@
+
 # Install dependences
-	`npm i`  
-# Open goto localhost:3000
+	npm i 
+# And goto localhost:3000
