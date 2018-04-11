@@ -1,0 +1,22 @@
+{
+  "name": "mysql-express-socket-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socket.io",
+    "express",
+    "sql"
+  ],
+  "author": "Atikur Rahman",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0",
+    "socket.io": "^2.1.0"
+  }
+}

@@ -1,0 +1,18 @@
+<button id="bet">New Bet</button>
+<input id="betInp" type="text">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	$("#bet").click(function(){
+        $.ajax({url:"/new/bet", data:JSON.stringify({ data:  $("#betInp").val() }), contentType: 'application/json', type: 'post', success:function(result){
+            alert('Data post successfull');
+        }});
+    });
+	var socket = io();
+	socket.on('new-bet', ()=>{
+		$.ajax({url: "/bets", success: function(result){
+			// 'New bet added, now reloaded you data here'
+			alert('New bet added, now reloaded your data here');
+		}});
+	})
+</script>
