@@ -41,24 +41,32 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
+// Fetch bets
 app.get('/bets', function(req, res){
-	//Response your bets
+	
+	//Fetch your bets and send response
 	res.json({ example: Date.now() })
 });
 
+// Insert new bet
 app.post('/new/bet', function(req, res) {
 	
 	let beat = req.body; // Your data
 	console.log(beat, 'New bet')
 	// Your insert query
 	var sql = `INSERT INTO bet (data) VALUES ('${beat.data}')`;
-	//Bulk insert using nested array [ [a,b],[c,d] ] will be flattened to (a,b),(c,d)
+
+	// Execute your sql query
 	connection.query(sql, [], function(err,result) {
 		if(err) {
 			res.send('Error');
 		}
 		else {
+			
+			// Emit an event to all your connected user 
+			// that your bet is updated
 			io.sockets.emit('new-bet');
+			
 			res.send('Success');
 		}
 	});
