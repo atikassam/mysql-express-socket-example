@@ -1,4 +1,6 @@
 
 # Install dependences
-	npm i 
+	`npm i`
+	`node index`
+	
 # And goto localhost:3000
